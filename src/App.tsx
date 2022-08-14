@@ -1,10 +1,15 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import { PersonalAccount } from "./components/PersonalAccount";
+import { AppRouter } from "./AppRoutes";
 
 export const App = () => (
-  <Provider store={store}>
-    <PersonalAccount />
-  </Provider>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

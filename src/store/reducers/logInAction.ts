@@ -1,12 +1,11 @@
+import { NavigateFunction } from "react-router-dom";
 import { AppDispatch } from "..";
+import { RoutesName } from "../../utils/routes";
 import {
-  addUser,
-  deleteUser,
   authentication,
-  logInSucsess,
+  authSucsess,
   logInError,
-  logOut,
-} from "./userManager";
+} from "./authManager";
 
 export interface UserAuthType {
   id: number;
@@ -18,18 +17,20 @@ export interface UserAuthListType {
   [name: string]: UserAuthType;
 }
 
-//Content-Type: application/json
 export const logInAction =
-  (login: string, password: string) => async (dispatch: AppDispatch) => {
+  (login: string, password: string, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
     try {
       const defaultErrorMessage = `User with name ${login} is not registered`;
       const wrongPasswordMessage = `You entered an invalid password`;
       dispatch(authentication());
       const response = await fetch(`http://localhost:3000/userlist`);
-      let result = (await response.json()) as UserAuthListType;
-      console.log(result);
+      const result = (await response.json()) as UserAuthListType;
       if (result[login]) {
-        if (result[login].password === password) dispatch(logInSucsess());
+        if (result[login].password === password) {
+
+          dispatch(authSucsess(login));
+          navigate(RoutesName.HOME_PAGE_ROUTE, { replace: true });
+        }
         else dispatch(logInError(wrongPasswordMessage));
       } else dispatch(logInError(defaultErrorMessage));
     } catch {

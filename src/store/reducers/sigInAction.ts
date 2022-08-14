@@ -1,5 +1,7 @@
+import { NavigateFunction } from "react-router-dom";
 import { AppDispatch } from "..";
-import { authentication, logInError } from "./userManager";
+import { RoutesName } from "../../utils/routes";
+import { authentication, logInError, authSucsess } from "./authManager";
 
 export interface UserAuthType {
   id: number;
@@ -12,17 +14,15 @@ export interface UserAuthListType {
 }
 
 export const sigInAction =
-  (login: string, password: string) => async (dispatch: AppDispatch) => {
+  (login: string, password: string, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
     try {
       const defaultErrorMessage = `User with name ${login} already exist`;
       dispatch(authentication());
       const response = await fetch(`http://localhost:3000/userlist`);
       const result = (await response.json()) as UserAuthListType;
-      console.log(1);
       if (result[login]) dispatch(logInError(defaultErrorMessage));
       else {
         try {
-          console.log(2);
           const newUser = JSON.stringify({
             [login]: {
               id: Date.now(),
@@ -37,13 +37,13 @@ export const sigInAction =
             method: "PATCH",
             body: newUser,
           });
+          dispatch(authSucsess(login));
+          navigate(RoutesName.HOME_PAGE_ROUTE, { replace: true });
         } catch {
-          console.log(3);
           throw new Error();
         }
       }
     } catch {
-      console.log(4);
       dispatch(
         logInError(
           "Oops... some kind of server problem, please try again later"
