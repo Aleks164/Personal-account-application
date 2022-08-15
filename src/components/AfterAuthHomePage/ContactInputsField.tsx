@@ -26,15 +26,23 @@ export const ContactInputsField = () => {
   }
 
   return (
-    <Paper elevation={3} sx={{ m: 2, p: 2, maxWidth: 1150 }}>
+    <Paper elevation={3} sx={{ m: 2,mt:0, p: 2 }}>
       <Grid
+         container
+  direction="row"
+  justifyContent="space-evenly"
+  alignItems="center"
+      >
+          <Grid
         container
         direction="column"
         justifyContent="center"
         alignItems="flex-start"
+        item
+        xs={8}
       >
         <TextField
-          sx={{ width: "35vw" }}
+          sx={{ width: "100%" }}
           id="name"
           value={name}
           label="Name"
@@ -44,7 +52,7 @@ export const ContactInputsField = () => {
           }}
         />
         <TextField
-          sx={{ width: "35vw" }}
+          sx={{ width: "100%" }}
           id="phoneNumber"
           value={phoneNumber}
           label="Phone number"
@@ -52,7 +60,7 @@ export const ContactInputsField = () => {
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <TextField
-          sx={{ width: "35vw" }}
+          sx={{ width: "100%" }}
           id="email"
           value={email}
           label="Email"
@@ -60,11 +68,12 @@ export const ContactInputsField = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </Grid>
-      <Grid>
-        <Button variant="contained" onClick={addContactHandler}>
+      <Grid item xs={3}>
+        <Button sx={{mr:3,ml:1}} variant="contained" onClick={addContactHandler}>
           Add contact
         </Button>
       </Grid>
+       </Grid>
     </Paper>
   );
 };

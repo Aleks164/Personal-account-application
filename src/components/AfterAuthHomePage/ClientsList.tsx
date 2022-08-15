@@ -1,17 +1,33 @@
-import { Paper, Stack, Typography } from "@mui/material";
-import React from "react";
-import { useTypedSelector } from "../../hooks/redux";
+import { Paper, Typography } from "@mui/material";
+import React, {useRef} from "react";
 import { ContactType } from "../../store/reducers/contactsListManager";
 
 export type ClientsListParamType = {
   contacts: ContactType[];
 };
 
-export const ClientsList = ({ contacts }: ClientsListParamType) => (
-  <Stack>
-    {contacts.map((contact) => (
+export const ClientsList = ({ contacts }: ClientsListParamType) => {
+    
+    function useDebouncer(func, delay) {
+  const ref = useRef<NodeJS.Timeout>(0);
+
+  return (...args) => {
+    clearTimeout(ref.current);
+    ref.current = setTimeout(() => func(...args), delay);
+  };
+  
+  const debouncedValueLogging = useDebouncer(valueLogging, 300);
+  
+  
+  
+}
+    
+    return(
+  <Paper        
+        elevation={3}> 
+    {contacts.length?<>{contacts.map((contact) => (
       <Paper
-        sx={{ width: "35vw", mt: 2, mb: 2 }}
+        sx={{  mt: 1, mb: 1,p:2 }}
         key={contact.id}
         elevation={3}
       >
@@ -25,6 +41,6 @@ export const ClientsList = ({ contacts }: ClientsListParamType) => (
           Email: <b>{contact.email}</b>
         </Typography>
       </Paper>
-    ))}
-  </Stack>
-);
+    )).reverse()}</>:<Typography variant="h6" sx={{p:2, textAlign:"center"}}>----Empty list----</Typography>}
+  </Paper>
+);}

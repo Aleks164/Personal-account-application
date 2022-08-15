@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Box, Grid, Typography, Paper } from "@mui/material";
-import { useTypedSelector, useTypedDispatch } from "../../hooks/redux";
-import { ClientsList } from "./ClientsList";
 import { ContactsFilter } from "./ContactsFilter";
-import { setError } from "../../store/reducers/authManager";
 import { ContactInputsField } from "./ContactInputsField";
 import { ContactErrorField } from "./ContactErrorField";
+import { DIvidedContactsList } from "./DIvidedContactsList";
 
 export const AfterAuthHomePage = () => (
   <Box>
     <Paper elevation={3} sx={{ maxWidth: 1150, mt: 3, ml: "auto", mr: "auto" }}>
       <Typography variant="h4" textAlign={"center"} sx={{ p: 2 }}>
-        Contact list
+        Contacts list
       </Typography>
       <Grid
         container
@@ -23,7 +21,7 @@ export const AfterAuthHomePage = () => (
         <ContactsFilter />
       </Grid>
     </Paper>
-
-    <ContactErrorField />
+<DIvidedContactsList/>
+    <ContactErrorField/>
   </Box>
 );
