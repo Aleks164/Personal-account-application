@@ -8,17 +8,18 @@ import {
   MenuItem,
   FormHelperText,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 
 export const ContactsFilter = () => {
   const [selectedFilter, setSelectedFilter] = useState("name");
   const [filterValue, setFilterValue] = useState("");
+  
+ 
 
   return (
     <Grid>
-      <Paper elevation={3} sx={{ mt: 1, mb: 1, p: 2, pb: 0, maxWidth: 1150 }}>
-        <TextField
-          sx={{ width: "33vw" }}
+      <Paper elevation={3} sx={{ mb:2, p: 2, pb: 0}}>
+        <TextField          
           id="filter"
           value={filterValue}
           label="Filter"
@@ -27,7 +28,7 @@ export const ContactsFilter = () => {
             setFilterValue(e.target.value);
           }}
         />
-        <FormControl sx={{ minWidth: 120, ml: 3 }}>
+        <FormControl sx={{ minWidth: 120, ml: 2 }}>
           <InputLabel id="filter-select">Filter by</InputLabel>
           <Select
             labelId="filter-select"
