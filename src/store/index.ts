@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authManager from "./reducers/authManager";
 import contactsListManager from "./reducers/contactsListManager";
+import filterManager from "./reducers/filterManager";
 
 const userReucer = combineReducers({
-  authManager, contactsListManager
+  authManager, contactsListManager, filterManager
 });
 
 export const store = configureStore({

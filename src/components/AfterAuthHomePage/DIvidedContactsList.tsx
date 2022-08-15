@@ -5,22 +5,28 @@ import { ClientsList } from "./ClientsList";
 
 export const DIvidedContactsList = () => {
   const { contacts } = useTypedSelector((state) => state.contactsListManager);
-  const filteredList = useTypedSelector((state) => state.contactsListManager);
+  const { filtredContacts } = useTypedSelector((state) => state.filterManager);
 
-  return <Grid
-  container
-  direction="row"
-  justifyContent="space-evenly"
-  alignItems="flex-start"
-  sx={{mt:1}}
->
-    <Grid item xs={5}>
-      <Paper elevation={3} sx={{mb:0,p:1, textAlign:"center"}}>Full list</Paper>
-      <ClientsList contacts={contacts}/>
+  return (
+    <Grid
+      container
+      direction="row"
+      justifyContent="space-evenly"
+      alignItems="flex-start"
+      sx={{ mt: 1 }}
+    >
+      <Grid item xs={5}>
+        <Paper elevation={3} sx={{ mb: 0, p: 1, textAlign: "center" }}>
+          Full list
+        </Paper>
+        <ClientsList contacts={contacts} />
       </Grid>
       <Grid item xs={5}>
-         <Paper elevation={3} sx={{mb:0,p:1, textAlign:"center"}}>Filtred list</Paper>
-      <ClientsList contacts={contacts}/>
+        <Paper elevation={3} sx={{ mb: 0, p: 1, textAlign: "center" }}>
+          Filtred list
+        </Paper>
+        <ClientsList contacts={filtredContacts} />
       </Grid>
-  </Grid>;
+    </Grid>
+  );
 };

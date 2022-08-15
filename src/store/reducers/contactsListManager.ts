@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { defaultContactList } from "../../utils/defaultContactList";
 
 export interface ContactType {
   id: number;
@@ -12,7 +13,7 @@ export interface ContactsListManagerStateType {
 }
 
 const initialState: ContactsListManagerStateType = {
-  contacts: []
+  contacts: defaultContactList
 }
 
 export const contactsListManager = createSlice({

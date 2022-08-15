@@ -2,7 +2,7 @@ import { NavigateFunction } from "react-router-dom";
 import { AppDispatch } from "..";
 import { RoutesName } from "../../utils/routes";
 import {
-  authentication,
+  setIsLoading,
   authSucsess,
   logInError,
 } from "./authManager";
@@ -22,7 +22,7 @@ export const logInAction =
     try {
       const defaultErrorMessage = `User with name ${login} is not registered`;
       const wrongPasswordMessage = `You entered an invalid password`;
-      dispatch(authentication());
+      dispatch(setIsLoading());
       const response = await fetch(`http://localhost:3000/userlist`);
       const result = (await response.json()) as UserAuthListType;
       if (result[login]) {

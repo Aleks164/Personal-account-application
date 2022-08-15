@@ -21,7 +21,7 @@ export const AfterAuthHomePage = () => (
         <ContactsFilter />
       </Grid>
     </Paper>
-<DIvidedContactsList/>
-    <ContactErrorField/>
+    <DIvidedContactsList />
+    <ContactErrorField />
   </Box>
 );

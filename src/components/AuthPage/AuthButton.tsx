@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { logInAction } from "../../store/reducers/logInAction";
 import { sigInAction } from "../../store/reducers/sigInAction";
-import { authentication } from "../../store/reducers/authManager";
-import { RoutesName } from "../../utils/routes";
+import { setIsLoading } from "../../store/reducers/authManager";
 import { HelpMessageParamType } from "./HelpMessage";
 
 export interface AuthButtonParamType extends HelpMessageParamType {
@@ -27,7 +26,7 @@ export const AuthButton = ({
       size="large"
       sx={{ mt: "5%" }}
       onClick={() => {
-        dispatch(authentication());
+        dispatch(setIsLoading());
         if (processName === "Log in")
           dispatch(logInAction(name, password, navigate));
         else dispatch(sigInAction(name, password, navigate));

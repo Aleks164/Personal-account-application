@@ -25,8 +25,11 @@ export const authManager = createSlice({
   name: "authManager",
   initialState,
   reducers: {
-    authentication: (state) => {
+    setIsLoading: (state) => {
       state.isLoading = true;
+    },
+    setIsLoaded: (state) => {
+      state.isLoading = false;
     },
     authSucsess: (state, action: PayloadAction<AuthManagerStateType["currentUser"]>) => {
       state.isAuth = true;
@@ -46,7 +49,8 @@ export const authManager = createSlice({
 });
 
 export const {
-  authentication,
+  setIsLoading,
+  setIsLoaded,
   authSucsess,
   logInError,
   logOut, setError
