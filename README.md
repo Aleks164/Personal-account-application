@@ -18,7 +18,7 @@
 1. Клонируйте репозиторий
 
 ```
-git clone https://github.com/Aleks164/Personal-account-application.git
+git clone https://github.com/Aleks164/Personal-account-application.git .
 ```
 2. Установите NPM packages
 
