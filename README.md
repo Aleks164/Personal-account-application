@@ -1,6 +1,6 @@
-
+<div align="center">
 <h1><code>Personal-account-application</code></h1>   
-
+</div>
 
 <p align="center"><a href="https://git-scm.com/" target="_blank"> 
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="60" height="60"/> </a> <a href="https://www.typescriptlang.org/" target="_blank"> 
