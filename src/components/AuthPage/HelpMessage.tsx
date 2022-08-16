@@ -1,11 +1,8 @@
 import { Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { HelpMessageParamType } from "../../types/types";
 import { RoutesName } from "../../utils/routes";
-
-export type HelpMessageParamType = {
-  processName: "Log in" | "Sign up";
-};
 
 export const HelpMessage = ({ processName }: HelpMessageParamType) => (
   <>

@@ -1,10 +1,6 @@
-import { TextField } from "@mui/material";
 import React from "react";
-
-export interface InputPasswordParamType {
-  password: string;
-  setPassword: (password: React.SetStateAction<string>) => void;
-}
+import { TextField } from "@mui/material";
+import { InputPasswordParamType } from "../../types/types";
 
 export const InputPasswordField = ({
   password,

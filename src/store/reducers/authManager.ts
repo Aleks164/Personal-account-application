@@ -1,18 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface UserType {
-  id: number;
-  name: string;
-  phoneNumber: string;
-  email: string;
-}
-
-export interface AuthManagerStateType {
-  isLoading: boolean;
-  isAuth: boolean;
-  error: string;
-  currentUser: string
-}
+import { AuthManagerStateType } from "../../types/types";
 
 const initialState: AuthManagerStateType = {
   isLoading: false,

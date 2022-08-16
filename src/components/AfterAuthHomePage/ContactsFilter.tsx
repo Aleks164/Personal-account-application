@@ -16,9 +16,9 @@ import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { setIsLoading, setIsLoaded } from "../../store/reducers/authManager";
 import {
   changeField,
-  FilterType,
   setFiltredList,
 } from "../../store/reducers/filterManager";
+import { FilterType } from "../../types/types";
 
 export const ContactsFilter = () => {
   const [filterValue, setFlterValue] = useState("");
@@ -72,13 +72,10 @@ export const ContactsFilter = () => {
           </Select>
           <FormHelperText>Select the filter field</FormHelperText>
         </FormControl>
-      </Paper><Box sx={{height:25,mt:3}}>
-        {isLoading ? (
-        <LinearProgress  />
-      ) : (
-        <Divider  />
-      )}
-      </Box>      
+      </Paper>
+      <Box sx={{ height: 25, mt: 3 }}>
+        {isLoading ? <LinearProgress /> : <Divider />}
+      </Box>
     </Grid>
   );
 };

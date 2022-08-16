@@ -1,9 +1,6 @@
 import React from "react";
 import { Alert } from "@mui/material";
-
-export type ErrorAlertParamType = {
-  error: string;
-};
+import { ErrorAlertParamType } from "../../types/types";
 
 export const ErrorAlert = ({ error }: ErrorAlertParamType) => (
   <Alert

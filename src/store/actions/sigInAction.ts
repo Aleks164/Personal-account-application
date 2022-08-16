@@ -1,17 +1,8 @@
 import { NavigateFunction } from "react-router-dom";
 import { AppDispatch } from "..";
+import { UserAuthListType } from "../../types/types";
 import { RoutesName } from "../../utils/routes";
-import { setIsLoading, logInError, authSucsess } from "./authManager";
-
-export interface UserAuthType {
-  id: number;
-  name: string;
-  password: string;
-}
-
-export interface UserAuthListType {
-  [name: string]: UserAuthType;
-}
+import { setIsLoading, logInError, authSucsess } from "../reducers/authManager";
 
 export const sigInAction =
   (login: string, password: string, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {

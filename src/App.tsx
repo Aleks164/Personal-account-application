@@ -6,10 +6,10 @@ import { AppRouter } from "./AppRoutes";
 
 export const App = () => (
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
+    <Provider store={store}>
+      <BrowserRouter>
         <AppRouter />
-      </Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

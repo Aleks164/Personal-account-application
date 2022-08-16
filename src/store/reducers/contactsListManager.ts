@@ -1,16 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ContactsListManagerStateType, ContactType } from "../../types/types";
 import { defaultContactList } from "../../utils/defaultContactList";
-
-export interface ContactType {
-  id: number;
-  name: string;
-  phoneNumber: string;
-  email: string;
-}
-
-export interface ContactsListManagerStateType {
-  contacts: ContactType[]
-}
 
 const initialState: ContactsListManagerStateType = {
   contacts: defaultContactList

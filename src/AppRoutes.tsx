@@ -30,7 +30,7 @@ export const AppRouter = () => {
             <Route path={RoutesName.SIGNUP_ROUTE} element={<AuthPage />} />
           </>
         )}
-        <Route path="*" element={<UnfoundPage />} />       
+        <Route path="*" element={<UnfoundPage />} />
       </Route>
     </Routes>
   );

@@ -1,24 +1,26 @@
 import { Snackbar, Alert } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useTypedDispatch,useTypedSelector } from "../../hooks/redux";
+import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { setError } from "../../store/reducers/authManager";
-
 
 export const ContactErrorField = () => {
   const { error } = useTypedSelector((state) => state.authManager);
   const [open, setOpen] = useState(true);
   const dispatch = useTypedDispatch();
 
-useEffect(()=>{
-    const errorTimeOutId = setTimeout(()=>{
+  useEffect(() => {
+    if (error.length) {
+      const errorTimeOutId = setTimeout(() => {
         dispatch(setError(""));
-    setOpen(true);
-    },5000);
-    return ()=>{
-         clearTimeout(errorTimeOutId);
-         setOpen(true);
-         }
-},[error]);
+        setOpen(true);
+      }, 5000);
+      return () => {
+        clearTimeout(errorTimeOutId);
+        setOpen(true);
+      };
+    }
+    return undefined;
+  });
 
   return (
     <>

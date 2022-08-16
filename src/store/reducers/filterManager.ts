@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ContactType } from "./contactsListManager";
-
-
-export interface FilterType {
-    field: "name" | "phoneNumber" | "email";
-    filtredContacts: ContactType[];
-}
+import { FilterType } from "../../types/types";
 
 const initialState: FilterType = {
     field: "name",

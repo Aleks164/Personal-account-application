@@ -28,10 +28,14 @@ export const AuthPage = () => {
 
   useEffect(() => {
     if (error.length > 0) {
-      setTimeout(() => {
+      const setTimeoutId = setTimeout(() => {
         dispatch(logInError(""));
       }, 5000);
+      return () => {
+        clearTimeout(setTimeoutId);
+      };
     }
+    return undefined;
   });
 
   return (
@@ -77,13 +81,13 @@ export const AuthPage = () => {
             />
           </Grid>
         </Box>
-        <Box sx={{height:35,mt:2,mb:2}}>
-        {isLoading ? (
-          <LinearProgress sx={{ mt: "5%" }} />
-        ) : (
-          <Divider sx={{ mt: "5%" }} />
-        )}
-        <HelpMessage processName={processName} />
+        <Box sx={{ height: 35, mt: 2, mb: 2 }}>
+          {isLoading ? (
+            <LinearProgress sx={{ mt: "5%" }} />
+          ) : (
+            <Divider sx={{ mt: "5%" }} />
+          )}
+          <HelpMessage processName={processName} />
         </Box>
       </Paper>
       {error.length > 0 && <ErrorAlert error={error} />}

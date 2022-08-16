@@ -7,7 +7,7 @@ import { DIvidedContactsList } from "./DIvidedContactsList";
 
 export const AfterAuthHomePage = () => (
   <Box>
-    <Paper elevation={3} sx={{ maxWidth: 1150, mt: 3, ml: "auto", mr: "auto" }}>
+    <Paper elevation={3} sx={{ maxWidth: 1150, mt: 4, ml: "auto", mr: "auto" }}>
       <Typography variant="h4" textAlign={"center"} sx={{ p: 2 }}>
         Contacts list
       </Typography>

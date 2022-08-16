@@ -1,16 +1,10 @@
 import { Grid, IconButton, Paper, Typography } from "@mui/material";
 import React from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
-import {
-  ContactType,
-  deleteContact,
-} from "../../store/reducers/contactsListManager";
+import { deleteContact } from "../../store/reducers/contactsListManager";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { setFiltredList } from "../../store/reducers/filterManager";
-
-export type ClientsListParamType = {
-  contacts: ContactType[];
-};
+import { ClientsListParamType } from "../../types/types";
 
 export const ClientsList = ({ contacts }: ClientsListParamType) => {
   const dispatch = useTypedDispatch();
