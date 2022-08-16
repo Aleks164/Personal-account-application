@@ -2,17 +2,16 @@ import { Grid, IconButton, Paper, Typography } from "@mui/material";
 import React from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { deleteContact } from "../../store/reducers/contactsListManager";
-import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
-import {
-  deleteContactInFiltredList,
-  setFiltredList,
-} from "../../store/reducers/filterManager";
+import { useTypedDispatch } from "../../hooks/redux";
+import { deleteContactInFiltredList } from "../../store/reducers/filterManager";
 import { ClientsListParamType } from "../../types/types";
 import { ContactChangeForm } from "./ContactChangeForm";
 
-export const ClientsList = ({ contacts }: ClientsListParamType) => {
+export const ClientsList = ({
+  contacts,
+  isFilterlist,
+}: ClientsListParamType) => {
   const dispatch = useTypedDispatch();
-  const { filtredContacts } = useTypedSelector((state) => state.filterManager);
 
   return (
     <Paper elevation={3}>
@@ -49,7 +48,10 @@ export const ClientsList = ({ contacts }: ClientsListParamType) => {
                     >
                       <CancelIcon fontSize="large" />
                     </IconButton>
-                    <ContactChangeForm id={contact.id} />
+                    <ContactChangeForm
+                      isFilterlist={isFilterlist}
+                      id={contact.id}
+                    />
                   </Grid>
                 </Grid>
               </Paper>

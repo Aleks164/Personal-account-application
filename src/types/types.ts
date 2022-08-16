@@ -62,9 +62,11 @@ export interface FilterType {
 };;
 
 export type ClientsListParamType = {
+  isFilterlist: boolean,
   contacts: ContactType[];
 };
 
 export type ContactChangeFormParamType = {
-  id: number
+  id: number,
+  isFilterlist: boolean,
 }

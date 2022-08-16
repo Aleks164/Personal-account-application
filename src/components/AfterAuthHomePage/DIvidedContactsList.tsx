@@ -19,13 +19,13 @@ export const DIvidedContactsList = () => {
         <Paper elevation={3} sx={{ mb: 0, p: 1, textAlign: "center" }}>
           Full list
         </Paper>
-        <ClientsList contacts={contacts} />
+        <ClientsList isFilterlist={false} contacts={contacts} />
       </Grid>
       <Grid item xs={5}>
         <Paper elevation={3} sx={{ mb: 0, p: 1, textAlign: "center" }}>
           Filtred list
         </Paper>
-        <ClientsList contacts={filtredContacts} />
+        <ClientsList isFilterlist={true} contacts={filtredContacts} />
       </Grid>
     </Grid>
   );
