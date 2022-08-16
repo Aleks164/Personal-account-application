@@ -1,13 +1,10 @@
 import React from "react";
 import {
   AppBar,
-  IconButton,
-  Link,
   Toolbar,
   Typography,
   Grid,
 } from "@mui/material";
-import { Home, Info } from "@mui/icons-material";
 import { RoutesName } from "../../utils/routes";
 import { LogOutLink } from "./LogOutLink/LogOutLink";
 import { AuthLink } from "./AuthLink/AuthLink";

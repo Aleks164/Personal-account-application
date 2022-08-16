@@ -9,7 +9,7 @@ export const AuthLink = ({ to, type }: AuthLinkParamType) => (
     variant="outlined"
     size="small"
     color="inherit"
-    sx={{ mr: 2, mb: 1 }}
+    sx={{ m: 1, textAlign:"center" }}
     component={Link}
     to={to}
   >

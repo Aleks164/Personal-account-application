@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AfterAuthHomePage } from "./components/AfterAuthHomePage/AfterAuthHomePage";
 import { AuthPage } from "./components/AuthPage/AuthPage";
+import { UnfoundPage } from "./components/UnfoundPage";
 import { Layout } from "./components/Layout/Layout";
 import { useTypedSelector } from "./hooks/redux";
 import { RoutesName } from "./utils/routes";
@@ -29,9 +30,7 @@ export const AppRouter = () => {
             <Route path={RoutesName.SIGNUP_ROUTE} element={<AuthPage />} />
           </>
         )}
-        <Route path="*" element={<AuthPage />} />
-        {/* <Route path={RoutesName.HOME_PAGE_ROUTE} element={<AfterAuthHomePage />} />
-                <Route path="*" element={<AuthPage />} /> */}
+        <Route path="*" element={<UnfoundPage />} />       
       </Route>
     </Routes>
   );
