@@ -1,5 +1,6 @@
 import {
   Grid,
+  Box,
   Paper,
   TextField,
   FormControl,
@@ -71,12 +72,13 @@ export const ContactsFilter = () => {
           </Select>
           <FormHelperText>Select the filter field</FormHelperText>
         </FormControl>
-      </Paper>
-      {isLoading ? (
-        <LinearProgress sx={{ mt: "15px" }} />
+      </Paper><Box sx={{height:25,mt:3}}>
+        {isLoading ? (
+        <LinearProgress  />
       ) : (
-        <Divider sx={{ mt: "15px" }} />
+        <Divider  />
       )}
+      </Box>      
     </Grid>
   );
 };

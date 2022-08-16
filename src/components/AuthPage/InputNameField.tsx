@@ -11,12 +11,12 @@ export const InputNameField = ({ name, setName }: InputNameParamType) => (
     onChange={(e) => {
       setName(e.target.value);
     }}
-    focused
-    name="username"
-    autoComplete="username"
+    
+    name="User name"
+    autoComplete="User name"
     id="username field"
     value={name}
-    label="username"
+    label="User name"
     variant="outlined"
   />
 );

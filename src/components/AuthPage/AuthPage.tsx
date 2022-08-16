@@ -77,12 +77,14 @@ export const AuthPage = () => {
             />
           </Grid>
         </Box>
+        <Box sx={{height:35,mt:2,mb:2}}>
         {isLoading ? (
           <LinearProgress sx={{ mt: "5%" }} />
         ) : (
           <Divider sx={{ mt: "5%" }} />
         )}
         <HelpMessage processName={processName} />
+        </Box>
       </Paper>
       {error.length > 0 && <ErrorAlert error={error} />}
     </Box>

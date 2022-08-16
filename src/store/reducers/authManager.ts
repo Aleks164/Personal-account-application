@@ -16,7 +16,7 @@ export interface AuthManagerStateType {
 
 const initialState: AuthManagerStateType = {
   isLoading: false,
-  isAuth: true,
+  isAuth: false,
   error: "",
   currentUser: ""
 };
