@@ -3,8 +3,12 @@ import React from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { deleteContact } from "../../store/reducers/contactsListManager";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
-import { setFiltredList } from "../../store/reducers/filterManager";
+import {
+  deleteContactInFiltredList,
+  setFiltredList,
+} from "../../store/reducers/filterManager";
 import { ClientsListParamType } from "../../types/types";
+import { ContactChangeForm } from "./ContactChangeForm";
 
 export const ClientsList = ({ contacts }: ClientsListParamType) => {
   const dispatch = useTypedDispatch();
@@ -40,18 +44,12 @@ export const ClientsList = ({ contacts }: ClientsListParamType) => {
                       aria-label="delete"
                       onClick={() => {
                         dispatch(deleteContact(contact.id));
-                        dispatch(
-                          setFiltredList(
-                            filtredContacts.filter(
-                              (filtredContact) =>
-                                filtredContact.id !== contact.id
-                            )
-                          )
-                        );
+                        dispatch(deleteContactInFiltredList(contact.id));
                       }}
                     >
                       <CancelIcon fontSize="large" />
                     </IconButton>
+                    <ContactChangeForm id={contact.id} />
                   </Grid>
                 </Grid>
               </Paper>

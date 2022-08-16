@@ -64,3 +64,7 @@ export interface FilterType {
 export type ClientsListParamType = {
   contacts: ContactType[];
 };
+
+export type ContactChangeFormParamType = {
+  id: number
+}

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FilterType } from "../../types/types";
+import { ContactType, FilterType } from "../../types/types";
 
 const initialState: FilterType = {
     field: "name",
@@ -16,12 +16,20 @@ export const filterManager = createSlice({
         setFiltredList: (state, action: PayloadAction<FilterType["filtredContacts"]>) => {
             state.filtredContacts = action.payload;
         },
+        deleteContactInFiltredList: (state, action: PayloadAction<ContactType["id"]>) => {
+            state.filtredContacts = state.filtredContacts.filter((filtredContact) => filtredContact.id !== action.payload);
+        },
+        addContactInFiltredList: (state, action: PayloadAction<ContactType>) => {
+            state.filtredContacts.push(action.payload);
+        },
     },
 });
 
 export const {
     changeField,
-    setFiltredList
+    setFiltredList,
+    deleteContactInFiltredList,
+    addContactInFiltredList
 } = filterManager.actions;
 
 export default filterManager.reducer;
