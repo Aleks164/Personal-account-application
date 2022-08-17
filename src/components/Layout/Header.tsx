@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Grid,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, Grid } from "@mui/material";
 import { RoutesName } from "../../utils/routes";
 import { LogOutLink } from "./LogOutLink/LogOutLink";
 import { AuthLink } from "./AuthLink/AuthLink";

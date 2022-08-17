@@ -25,11 +25,16 @@ export const Layout = () => {
         isLoginPage={isLoginPage}
       />
       {isAuth && (
-        <Typography        
-          sx={{ position: "absolute", top: "65px", right: 0,fontFamily: "cursive",
-              color: "#edefff",
-              textShadow: "#3d3d3e 3px 0px 1px",
-              fontWeight: "900", }}
+        <Typography
+          sx={{
+            position: "absolute",
+            top: "65px",
+            right: 0,
+            fontFamily: "cursive",
+            color: "#edefff",
+            textShadow: "#3d3d3e 3px 0px 1px",
+            fontWeight: "900",
+          }}
           variant="h5"
         >
           {currentUser}

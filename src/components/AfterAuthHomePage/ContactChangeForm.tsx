@@ -16,9 +16,7 @@ import {
 } from "../../store/reducers/contactsListManager";
 import { setError } from "../../store/reducers/authManager";
 
-export const ContactChangeForm = ({
-  id
-}: ContactChangeFormParamType) => {
+export const ContactChangeForm = ({ id }: ContactChangeFormParamType) => {
   const [open, setOpen] = useState(false);
   const dispatch = useTypedDispatch();
   const { contacts } = useTypedSelector((state) => state.contactsListManager);
@@ -44,7 +42,7 @@ export const ContactChangeForm = ({
         email: changingEmail,
       };
       dispatch(deleteContact(id));
-      dispatch(addContact(changedContact));   
+      dispatch(addContact(changedContact));
     }
   };
 

@@ -14,12 +14,15 @@ import {
 import React from "react";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import {
- setChangeField,setFilterValue
+  setChangeField,
+  setFilterValue,
 } from "../../store/reducers/filterManager";
 import { FilterType } from "../../types/types";
 
 export const ContactsFilter = () => {
-  const { field,filterValue } = useTypedSelector((state) => state.filterManager);
+  const { field, filterValue } = useTypedSelector(
+    (state) => state.filterManager
+  );
   const { isLoading } = useTypedSelector((state) => state.authManager);
   const dispatch = useTypedDispatch();
 
@@ -31,7 +34,9 @@ export const ContactsFilter = () => {
           value={filterValue}
           label="Filter"
           variant="standard"
-          onChange={((e)=>{dispatch(setFilterValue(e.target.value));})}
+          onChange={(e) => {
+            dispatch(setFilterValue(e.target.value));
+          }}
         />
         <FormControl sx={{ minWidth: 120, ml: 2 }}>
           <InputLabel id="filter-select">Filter by</InputLabel>
@@ -41,7 +46,7 @@ export const ContactsFilter = () => {
             value={field}
             label="Filter by"
             onChange={(e) => {
-              dispatch(setChangeField(e.target.value as FilterType["field"]));              
+              dispatch(setChangeField(e.target.value as FilterType["field"]));
             }}
           >
             <MenuItem value={"name"}>Name</MenuItem>

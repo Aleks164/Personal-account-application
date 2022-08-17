@@ -7,9 +7,7 @@ import { deleteContactInFiltredList } from "../../store/reducers/filterManager";
 import { ClientsListParamType } from "../../types/types";
 import { ContactChangeForm } from "./ContactChangeForm";
 
-export const ClientsList = ({
-  contacts
-}: ClientsListParamType) => {
+export const ClientsList = ({ contacts }: ClientsListParamType) => {
   const dispatch = useTypedDispatch();
 
   return (
@@ -47,9 +45,7 @@ export const ClientsList = ({
                     >
                       <CancelIcon fontSize="large" />
                     </IconButton>
-                    <ContactChangeForm
-                      id={contact.id}
-                    />
+                    <ContactChangeForm id={contact.id} />
                   </Grid>
                 </Grid>
               </Paper>

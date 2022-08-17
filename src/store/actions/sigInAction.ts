@@ -5,7 +5,8 @@ import { RoutesName } from "../../utils/routes";
 import { setIsLoading, logInError, authSucsess } from "../reducers/authManager";
 
 export const sigInAction =
-  (login: string, password: string, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
+  (login: string, password: string, navigate: NavigateFunction) =>
+  async (dispatch: AppDispatch) => {
     try {
       const defaultErrorMessage = `User with name ${login} already exist`;
       dispatch(setIsLoading());

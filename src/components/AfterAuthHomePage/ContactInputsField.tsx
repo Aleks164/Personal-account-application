@@ -18,10 +18,10 @@ export const ContactInputsField = () => {
         phoneNumber,
         email,
       };
-      dispatch(addContact(newContact));    
+      dispatch(addContact(newContact));
       setName("");
       setPhoneNumber("");
-      setEmail("");          
+      setEmail("");
     } else dispatch(setError("Please fill in all the empty fields"));
   }
 

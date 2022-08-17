@@ -3,8 +3,8 @@ import { ContactsListManagerStateType, ContactType } from "../../types/types";
 import { defaultContactList } from "../../utils/defaultContactList";
 
 const initialState: ContactsListManagerStateType = {
-  contacts: defaultContactList
-}
+  contacts: defaultContactList,
+};
 
 export const contactsListManager = createSlice({
   name: "contactsListManager",
@@ -14,14 +14,13 @@ export const contactsListManager = createSlice({
       state.contacts.push(action.payload);
     },
     deleteContact: (state, action: PayloadAction<ContactType["id"]>) => {
-      state.contacts = state.contacts.filter((contact) => contact.id !== action.payload);
+      state.contacts = state.contacts.filter(
+        (contact) => contact.id !== action.payload
+      );
     },
   },
 });
 
-export const {
-  addContact,
-  deleteContact
-} = contactsListManager.actions;
+export const { addContact, deleteContact } = contactsListManager.actions;
 
 export default contactsListManager.reducer;

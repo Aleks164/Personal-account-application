@@ -5,7 +5,7 @@ const initialState: AuthManagerStateType = {
   isLoading: false,
   isAuth: false,
   error: "",
-  currentUser: ""
+  currentUser: "",
 };
 
 export const authManager = createSlice({
@@ -18,13 +18,20 @@ export const authManager = createSlice({
     setIsLoaded: (state) => {
       state.isLoading = false;
     },
-    authSucsess: (state, action: PayloadAction<AuthManagerStateType["currentUser"]>) => {
+    authSucsess: (
+      state,
+      action: PayloadAction<AuthManagerStateType["currentUser"]>
+    ) => {
       state.isAuth = true;
       state.isLoading = false;
       state.currentUser = action.payload;
     },
-    logInError: (state, action: PayloadAction<AuthManagerStateType["error"]>) => {
-      state.error = action.payload; state.isLoading = false;
+    logInError: (
+      state,
+      action: PayloadAction<AuthManagerStateType["error"]>
+    ) => {
+      state.error = action.payload;
+      state.isLoading = false;
     },
     setError: (state, action: PayloadAction<AuthManagerStateType["error"]>) => {
       state.error = action.payload;
@@ -40,7 +47,8 @@ export const {
   setIsLoaded,
   authSucsess,
   logInError,
-  logOut, setError
+  logOut,
+  setError,
 } = authManager.actions;
 
 export default authManager.reducer;

@@ -26,14 +26,14 @@ export const AuthPage = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {    
-      const setTimeoutId = setTimeout(() => {
-        dispatch(logInError(""));
-      }, 5000);
-      return () => {
-        clearTimeout(setTimeoutId);
-      };   
-  },[error]);
+  useEffect(() => {
+    const setTimeoutId = setTimeout(() => {
+      dispatch(logInError(""));
+    }, 5000);
+    return () => {
+      clearTimeout(setTimeoutId);
+    };
+  }, [error]);
 
   return (
     <Box>

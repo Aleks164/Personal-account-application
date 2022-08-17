@@ -4,7 +4,9 @@ import contactsListManager from "./reducers/contactsListManager";
 import filterManager from "./reducers/filterManager";
 
 const userReucer = combineReducers({
-  authManager, contactsListManager, filterManager
+  authManager,
+  contactsListManager,
+  filterManager,
 });
 
 export const store = configureStore({
