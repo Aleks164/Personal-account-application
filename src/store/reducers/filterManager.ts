@@ -4,13 +4,14 @@ import { ContactType, FilterType } from "../../types/types";
 const initialState: FilterType = {
     field: "name",
     filtredContacts: [],
+    filterValue:""
 }
 
 export const filterManager = createSlice({
     name: "filterManager",
     initialState,
     reducers: {
-        changeField: (state, action: PayloadAction<FilterType["field"]>) => {
+        setChangeField: (state, action: PayloadAction<FilterType["field"]>) => {
             state.field = action.payload;
         },
         setFiltredList: (state, action: PayloadAction<FilterType["filtredContacts"]>) => {
@@ -18,18 +19,18 @@ export const filterManager = createSlice({
         },
         deleteContactInFiltredList: (state, action: PayloadAction<ContactType["id"]>) => {
             state.filtredContacts = state.filtredContacts.filter((filtredContact) => filtredContact.id !== action.payload);
-        },
-        addContactInFiltredList: (state, action: PayloadAction<ContactType>) => {
-            state.filtredContacts.push(action.payload);
+        },        
+        setFilterValue: (state, action: PayloadAction<FilterType["filterValue"]>) => {
+            state.filterValue = action.payload;
         },
     },
 });
 
 export const {
-    changeField,
+    setChangeField,
     setFiltredList,
     deleteContactInFiltredList,
-    addContactInFiltredList
+    setFilterValue
 } = filterManager.actions;
 
 export default filterManager.reducer;

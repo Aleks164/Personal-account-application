@@ -8,8 +8,7 @@ import { ClientsListParamType } from "../../types/types";
 import { ContactChangeForm } from "./ContactChangeForm";
 
 export const ClientsList = ({
-  contacts,
-  isFilterlist,
+  contacts
 }: ClientsListParamType) => {
   const dispatch = useTypedDispatch();
 
@@ -49,7 +48,6 @@ export const ClientsList = ({
                       <CancelIcon fontSize="large" />
                     </IconButton>
                     <ContactChangeForm
-                      isFilterlist={isFilterlist}
                       id={contact.id}
                     />
                   </Grid>

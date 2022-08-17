@@ -59,6 +59,7 @@ export interface ContactsListManagerStateType {
 export interface FilterType {
   field: "name" | "phoneNumber" | "email";
   filtredContacts: ContactType[];
+  filterValue: string;
 };;
 
 export type ClientsListParamType = {
@@ -68,5 +69,4 @@ export type ClientsListParamType = {
 
 export type ContactChangeFormParamType = {
   id: number,
-  isFilterlist: boolean,
 }
