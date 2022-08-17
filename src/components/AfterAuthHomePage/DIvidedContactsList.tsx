@@ -1,11 +1,29 @@
+import React, { useEffect } from "react";
 import { Grid, Paper } from "@mui/material";
-import React from "react";
-import { useTypedSelector } from "../../hooks/redux";
+import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
+import { setFiltredList} from "../../store/reducers/filterManager";
 import { ClientsList } from "./ClientsList";
+import { setIsLoading, setIsLoaded } from "../../store/reducers/authManager";
 
-export const DIvidedContactsList = () => {
-  const { contacts } = useTypedSelector((state) => state.contactsListManager);
-  const { filtredContacts } = useTypedSelector((state) => state.filterManager);
+export const DIvidedContactsList = () => { 
+   const { contacts } = useTypedSelector((state) => state.contactsListManager);
+  const { field,filterValue,filtredContacts } = useTypedSelector((state) => state.filterManager);
+  const dispatch = useTypedDispatch();
+  
+  useEffect(()=>{ 
+          dispatch(setIsLoading()); 
+    const timeoutDebauncerId = setTimeout(() => {
+           dispatch(setIsLoaded());
+         const newFiltredContacts = contacts.filter((contact) =>
+        contact[field].toLowerCase().includes(filterValue.toLowerCase()));
+      dispatch(setFiltredList(newFiltredContacts));
+            
+    }, 600);
+    return ()=>{
+         dispatch(setIsLoaded());
+        clearTimeout(timeoutDebauncerId);        
+    }
+  },[filterValue,contacts,field]);
 
   return (
     <Grid

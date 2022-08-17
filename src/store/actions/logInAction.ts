@@ -8,7 +8,6 @@ import {
   logInError,
 } from "../reducers/authManager";
 
-
 export const logInAction =
   (login: string, password: string, navigate: NavigateFunction) => async (dispatch: AppDispatch) => {
     try {
@@ -19,7 +18,6 @@ export const logInAction =
       const result = (await response.json()) as UserAuthListType;
       if (result[login]) {
         if (result[login].password === password) {
-
           dispatch(authSucsess(login));
           navigate(RoutesName.HOME_PAGE_ROUTE, { replace: true });
         }

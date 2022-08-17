@@ -1,5 +1,5 @@
-import { Paper, Grid, TextField, Button } from "@mui/material";
 import React, { useState } from "react";
+import { Paper, Grid, TextField, Button } from "@mui/material";
 import { useTypedDispatch } from "../../hooks/redux";
 import { setError } from "../../store/reducers/authManager";
 import { addContact } from "../../store/reducers/contactsListManager";
@@ -11,17 +11,17 @@ export const ContactInputsField = () => {
   const [email, setEmail] = useState("");
 
   function addContactHandler() {
-    if (name.length && phoneNumber.length && email.length) {
+    if (name && phoneNumber && email) {
       const newContact = {
         id: Date.now(),
         name,
         phoneNumber,
         email,
       };
-      dispatch(addContact(newContact));
+      dispatch(addContact(newContact));    
       setName("");
       setPhoneNumber("");
-      setEmail("");
+      setEmail("");          
     } else dispatch(setError("Please fill in all the empty fields"));
   }
 

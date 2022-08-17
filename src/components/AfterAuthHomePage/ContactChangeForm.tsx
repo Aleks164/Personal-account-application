@@ -14,16 +14,10 @@ import {
   addContact,
   deleteContact,
 } from "../../store/reducers/contactsListManager";
-import {
-  addContactInFiltredList,
-  deleteContactInFiltredList,
-  setFiltredList,
-} from "../../store/reducers/filterManager";
 import { setError } from "../../store/reducers/authManager";
 
 export const ContactChangeForm = ({
-  id,
-  isFilterlist,
+  id
 }: ContactChangeFormParamType) => {
   const [open, setOpen] = useState(false);
   const dispatch = useTypedDispatch();
@@ -50,12 +44,7 @@ export const ContactChangeForm = ({
         email: changingEmail,
       };
       dispatch(deleteContact(id));
-      dispatch(addContact(changedContact));
-      if (!isFilterlist) dispatch(setFiltredList([]));
-      if (isFilterlist) {
-        dispatch(deleteContactInFiltredList(id));
-        dispatch(addContactInFiltredList(changedContact));
-      }
+      dispatch(addContact(changedContact));   
     }
   };
 

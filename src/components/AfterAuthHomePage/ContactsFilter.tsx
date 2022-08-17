@@ -11,37 +11,17 @@ import {
   Divider,
   LinearProgress,
 } from "@mui/material";
-import React, { useState, useRef } from "react";
+import React from "react";
 import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
-import { setIsLoading, setIsLoaded } from "../../store/reducers/authManager";
 import {
-  changeField,
-  setFiltredList,
+ setChangeField,setFilterValue
 } from "../../store/reducers/filterManager";
 import { FilterType } from "../../types/types";
 
 export const ContactsFilter = () => {
-  const [filterValue, setFlterValue] = useState("");
-  const { contacts } = useTypedSelector((state) => state.contactsListManager);
-  const { field } = useTypedSelector((state) => state.filterManager);
+  const { field,filterValue } = useTypedSelector((state) => state.filterManager);
   const { isLoading } = useTypedSelector((state) => state.authManager);
-  const timeoutDebauncerId = useRef<NodeJS.Timeout>();
   const dispatch = useTypedDispatch();
-
-  function handleChangeFilter(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    setFlterValue(e.target.value);
-    clearTimeout(timeoutDebauncerId.current);
-    dispatch(setIsLoading());
-    timeoutDebauncerId.current = setTimeout(() => {
-      const filtredContacts = contacts.filter((contact) =>
-        contact[field].includes(e.target.value)
-      );
-      dispatch(setFiltredList(filtredContacts));
-      dispatch(setIsLoaded());
-    }, 600);
-  }
 
   return (
     <Grid>
@@ -51,7 +31,7 @@ export const ContactsFilter = () => {
           value={filterValue}
           label="Filter"
           variant="standard"
-          onChange={handleChangeFilter}
+          onChange={((e)=>{dispatch(setFilterValue(e.target.value));})}
         />
         <FormControl sx={{ minWidth: 120, ml: 2 }}>
           <InputLabel id="filter-select">Filter by</InputLabel>
@@ -61,9 +41,7 @@ export const ContactsFilter = () => {
             value={field}
             label="Filter by"
             onChange={(e) => {
-              dispatch(changeField(e.target.value as FilterType["field"]));
-              dispatch(setFiltredList([]));
-              setFlterValue("");
+              dispatch(setChangeField(e.target.value as FilterType["field"]));              
             }}
           >
             <MenuItem value={"name"}>Name</MenuItem>
